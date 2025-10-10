@@ -1,22 +1,36 @@
-/*----Header----*/
+/* ==================== HEADER ==================== */
+
 .App {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+
 .App-header {
   display: flex;
   flex-direction: column;
-  margin-top: 18%;
+  margin-top: 12%;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 240px;
-  padding: 20px;
+  min-height: 280px;
+  padding: 40px 20px;
+  position: relative;
   transition:
     opacity 0.5s ease,
     transform 0.5s ease;
-  animation: headerEntrance 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #0089af, transparent);
+  border-radius: 2px;
 }
 
 .header-visible {
@@ -30,25 +44,6 @@
   pointer-events: none;
 }
 
-@keyframes headerEntrance {
-  0% {
-    opacity: 0;
-    transform: scale(0) rotate(-10deg);
-    filter: blur(10px);
-  }
-  50% {
-    transform: scale(1.08) rotate(2deg);
-  }
-  70% {
-    transform: scale(0.98) rotate(-1deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-    filter: blur(0px);
-  }
-}
-
 .NameContainer {
   display: flex;
   flex-direction: column;
@@ -56,82 +51,61 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 800px;
-  gap: 10px;
+  max-width: 900px;
+  gap: 85px;
 }
 
 .NameH {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 900;
   color: white;
-  font-size: clamp(80px, 15vw, 190px);
+  font-size: clamp(90px, 16vw, 100px);
   margin: 0;
-  animation: nameGlow 2s ease-in-out 0.5s forwards;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0);
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, #61dafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
 }
 
 .pHeader {
-  color: white;
-  font-size: clamp(16px, 3vw, 20px);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #61dafb;
+  font-size: clamp(18px, 3vw, 24px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   margin: 0;
   order: -2;
-  animation: textSlideIn 0.8s ease-out 0.3s both;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
-.HeaderPresentation {
+.NameContent {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   color: white;
-  font-size: clamp(16px, 3vw, 20px);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.subSkill {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2.5vw, 30px);
+  background: linear-gradient(135deg, #61dafb 0%, #61dafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0;
-  order: -1;
-  animation: textSlideIn 0.8s ease-out 0.5s both;
 }
 
-@keyframes nameGlow {
-  0% {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0);
-  }
-  50% {
-    text-shadow:
-      0 0 40px rgba(255, 255, 255, 0.8),
-      0 0 80px rgba(255, 255, 255, 0.4);
-  }
-  100% {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-  }
-}
-
-@keyframes textSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes scaleInBounce {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-/*---Fim do Header---*/
+/* ==================== DIVIDERS ==================== */
 
 .Divider {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #61dafb;
   width: 60%;
   margin: 0 auto;
-  margin-top: 20%;
+  margin-top: 14%;
   animation: scaleUpFade 0.8s ease-out;
 }
 
@@ -146,59 +120,156 @@
   }
 }
 
-/*----Main----*/
+/* ==================== SOBRE MIM ==================== */
 
+.AboutMeContainer {
+  margin-top: 12%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.AboutMe {
+  background: linear-gradient(
+    135deg,
+    rgba(97, 218, 251, 0.05),
+    rgba(97, 218, 251, 0.02)
+  );
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  border-radius: 20px;
+  padding: 50px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about {
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, #61dafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.AboutMe::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #61dafb, transparent);
+}
+
+.AboutMe h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  color: white;
+  margin: 0 0 30px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.AboutMe h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #61dafb;
+  border-radius: 2px;
+}
+
+.AboutMe p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 2.5vw, 18px);
+  line-height: 1.8;
+  color: #d0d0d0;
+  margin: 0;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================== SKILLS ==================== */
+.Compe {
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, #61dafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
 .skillsContainer {
-  width: auto;
-  height: auto;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-top: 6%;
+  padding: 0 20px;
+}
+
+.skillsContainer h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  color: white;
+  margin: 0 0 20px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.skillsContainer > p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #61dafb;
+  margin: 30px 0 80px 0;
+  font-style: italic;
+}
+
+.skillsContainer h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #61dafb;
+  border-radius: 2px;
 }
 
 .skills {
-  width: auto;
-  height: auto;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   align-items: center;
-  flex-wrap: wrap;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: white;
-  font-size: 30px;
+  gap: 40px 30px;
+  margin-bottom: 50px;
 }
 
-.skillsIcon {
-  width: 170px;
-  height: 170px;
-  transition: transform 0.3s ease-out;
-  cursor: pointer;
+@media (max-width: 768px) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
 }
 
-.skillsIcon:hover {
-  transform: scale(1.15) !important;
-}
-
-.TpSc {
-  width: 200px;
-  height: 170px;
-  transition: transform 0.3s ease-out;
-  cursor: pointer;
-}
-
-.TpSc:hover {
-  transform: scale(1.15) !important;
-}
-
-.Divider2 {
-  border-bottom: 1px solid white;
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 10%;
-  animation: scaleUpFade 0.8s ease-out;
+@media (max-width: 480px) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 15px;
+  }
 }
 
 .skill-wrapper {
@@ -206,28 +277,52 @@
   display: inline-block;
 }
 
+.skillsIcon {
+  width: 120px;
+  height: 120px;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  filter: brightness(0.8);
+  position: relative;
+}
+
+.skillsIcon:hover {
+  transform: scale(1.15) !important;
+  filter: brightness(1) drop-shadow(0 0 15px rgba(97, 218, 251, 0.5));
+}
+
+
+.TpSc {
+  width: 180px;
+  height: 140px;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+.TpSc:hover {
+  transform: scale(1.15) !important;
+  filter: brightness(1) drop-shadow(0 0 15px rgba(97, 218, 251, 0.5));
+}
+
+/* ==================== MODAL SKILLS ==================== */
+
 .modalSkill {
   position: absolute;
-
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-
   background: rgb(20, 20, 20);
   color: white;
   padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   z-index: 1000;
-
   margin-bottom: 10px;
   min-width: 200px;
   max-width: 300px;
-
   text-align: center;
-
   animation: fadeInUp 0.3s ease-out;
-
   pointer-events: none;
 }
 
@@ -264,36 +359,36 @@
     transform: translateX(-50%) translateY(0);
   }
 }
-/*--- Fim do Main---*/
 
-/*----Footer----*/
+/* ==================== FOOTER ==================== */
 
 .ContainerFooter {
   position: relative;
-  margin-top: 5%;
-  padding: 40px 20px;
+  margin-top: 8%;
+  padding: 50px 20px 30px;
   width: 100%;
-  background-color: #1a1a1a;
-  border-top: 2px solid #333;
+  background: linear-gradient(180deg, transparent, rgba(97, 218, 251, 0.03));
+  border-top: 1px solid rgba(97, 218, 251, 0.2);
 }
 
 .FooterContent {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .FooterText {
-  color: #ccc;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #b0b0b0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
   font-size: clamp(14px, 2vw, 16px);
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .SocialLinks {
@@ -304,7 +399,9 @@
 
 .SocialIcon {
   display: inline-block;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .SocialIcon img {
@@ -323,8 +420,169 @@
 }
 
 .Copyright {
-  color: #888;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #606060;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
   font-size: clamp(12px, 1.5vw, 14px);
   margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  text-align: center;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+@media (max-width: 768px) {
+  .App-header {
+    margin-top: 20%;
+    min-height: 200px;
+    padding: 30px 15px;
+  }
+
+  .NameContainer {
+    gap: 50px;
+  }
+
+  .NameH {
+    font-size: clamp(50px, 12vw, 70px);
+    letter-spacing: 1px;
+  }
+
+  .AboutMeContainer {
+    margin-top: 18%;
+  }
+
+  .AboutMe {
+    padding: 35px 25px;
+  }
+
+  .Divider {
+    width: 80%;
+    margin-top: 18%;
+  }
+
+  .skillsContainer {
+    margin-top: 10%;
+  }
+
+  .skillsContainer > p {
+    margin: 20px 0 40px 0;
+  }
+
+  .skillsIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .TpSc {
+    width: 140px;
+    height: 110px;
+  }
+
+  .modalSkill {
+    max-width: 250px;
+    min-width: 180px;
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    margin-top: 25%;
+    padding: 20px 10px;
+  }
+
+  .NameContainer {
+    gap: 40px;
+  }
+
+  .NameH {
+    font-size: clamp(40px, 10vw, 60px);
+  }
+
+  .pHeader {
+    font-size: clamp(14px, 3vw, 18px);
+    letter-spacing: 2px;
+  }
+
+  .subSkill {
+    font-size: clamp(14px, 2.5vw, 20px);
+  }
+
+  .AboutMeContainer {
+    margin-top: 22%;
+  }
+
+  .AboutMe {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+
+  .AboutMe h1 {
+    font-size: clamp(28px, 5vw, 36px);
+    margin: 0 0 20px 0;
+  }
+
+  .AboutMe p {
+    font-size: clamp(14px, 2.5vw, 16px);
+    line-height: 1.6;
+  }
+
+  .Divider {
+    width: 85%;
+    margin-top: 20%;
+  }
+
+  .skillsContainer {
+    margin-top: 12%;
+  }
+
+  .skillsContainer h1 {
+    font-size: clamp(28px, 5vw, 36px);
+    margin: 0 0 15px 0;
+  }
+
+  .skillsContainer > p {
+    font-size: clamp(12px, 2vw, 14px);
+    margin: 15px 0 35px 0;
+  }
+
+  .skillsIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .TpSc {
+    width: 120px;
+    height: 90px;
+  }
+
+  .modalSkill {
+    max-width: 200px;
+    min-width: 150px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .modalSkill h3 {
+    font-size: 14px;
+  }
+
+  .modalSkill p {
+    font-size: 11px;
+  }
+
+  .ContainerFooter {
+    padding: 40px 15px 25px;
+  }
+
+  .SocialLinks {
+    gap: 20px;
+  }
+
+  .SocialIcon img {
+    width: 40px;
+    height: 40px;
+  }
 }

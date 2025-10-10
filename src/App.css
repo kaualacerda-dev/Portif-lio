@@ -1,20 +1,34 @@
-body {
-  background-color: #000000;
+html {
+  overflow-y: auto;
   overflow-x: hidden;
-}
-
-/* Esconde a barra de scroll mas mantém a funcionalidade de scroll */
-body::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-/* Para Firefox */
-body {
   scrollbar-width: none;
-}
-
-/* Para IE e Edge antigo */
-body {
   -ms-overflow-style: none;
 }
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: #000000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+

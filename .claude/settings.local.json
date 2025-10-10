@@ -4,7 +4,13 @@
       "Bash(npm install:*)",
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Read(//c/Users/richa/OneDrive/Área de Trabalho/**)",
+      "WebSearch",
+      "WebFetch(domain:www.onlinewebfonts.com)",
+      "WebFetch(domain:fonts.google.com)"
     ],
     "deny": [],
     "ask": []

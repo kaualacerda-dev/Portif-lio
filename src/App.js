@@ -13,10 +13,8 @@ function App() {
     });
   }, []);
 
-  // Estado que guarda qual skill está com hover (null = nenhuma)
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
-  // Estado para controlar visibilidade do header baseado no scroll
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -24,12 +22,9 @@ function App() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Se scrollou para baixo e passou de 100px, esconde o header
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowHeader(false);
-      }
-      // Se scrollou para cima, mostra o header
-      else if (currentScrollY < lastScrollY) {
+      } else if (currentScrollY < lastScrollY) {
         setShowHeader(true);
       }
 
@@ -47,24 +42,73 @@ function App() {
         className={`App-header ${showHeader ? 'header-visible' : 'header-hidden'}`}
       >
         <div className="NameContainer">
-          <p className="pHeader">Hello World!</p>
-          <p className="HeaderPresentation">Eu me chamo </p>
-          <h1 className="NameH">Kauã</h1>
+          <p className="pHeader" data-aos="fade-up" data-aos-duration="1500">
+            Hello World!
+          </p>
+          <div className="NameContent">
+            <h1
+              className="NameH"
+              data-aos="fade-up"
+              data-aos-duration="1800"
+              data-aos-delay="300"
+            >
+              Oi, eu sou
+            </h1>
+            <h1
+              className="NameH"
+              data-aos="fade-up"
+              data-aos-duration="1800"
+              data-aos-delay="600"
+            >
+              Kauã Richard
+            </h1>
+            <p
+              className="subSkill"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+              data-aos-delay="900"
+            >
+              Desenvolvedor Mobile Front-End
+            </p>
+          </div>
         </div>
       </header>
 
       <main>
         <div className="Divider" data-aos="fade-up" />
 
-        <div className="skillsContainer">
-          <div className="skills">
-            <h1 data-aos="fade-down">Competencias</h1>
+        <div className="AboutMeContainer">
+          <div className="AboutMe" data-aos="fade-down">
+            <h1 className="about">Sobre mim</h1>
+            <p>
+              Sou um desenvolvedor front-end apaixonado por tecnologia e
+              inovação. Sou autodidata e aprendo por meio de cursos online e
+              projetos práticos. Possuo experiência profissional em
+              desenvolvimento mobile, com foco em criar soluções eficientes e
+              intuitivas. Estou sempre buscando aprender novas tecnologias e
+              aprimorar minhas habilidades para entregar o melhor resultado
+              possível.
+            </p>
+          </div>
+        </div>
+        <div className="Divider" data-aos="fade-up" />
 
-            {/* HTML5 - Container com position relative */}
+        <div className="skillsContainer">
+          <h1 data-aos="fade-down" className="Compe">
+            Competências
+          </h1>
+          <p data-aos="fade-up" data-aos-delay="100">
+            Passe o mouse sobre os ícones para ver mais detalhes, ou clique
+            neles
+          </p>
+          <div className="skills">
             <div className="skill-wrapper">
               <img
                 onMouseEnter={() => setHoveredSkill('html')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'html' ? null : 'html')
+                }
                 src="/imgs/html.png"
                 alt="HTML5"
                 className="skillsIcon"
@@ -87,6 +131,9 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('css')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'css' ? null : 'css')
+                }
                 src="/imgs/css-3.png"
                 alt="CSS3"
                 className="skillsIcon"
@@ -109,6 +156,9 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('react')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'react' ? null : 'react')
+                }
                 src="/imgs/ReactJs.webp"
                 alt="Reacticon"
                 className="skillsIcon"
@@ -131,6 +181,11 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('javascript')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(
+                    hoveredSkill === 'javascript' ? null : 'javascript'
+                  )
+                }
                 src="/imgs/script-java.png"
                 alt="JavaScript"
                 className="skillsIcon"
@@ -153,6 +208,11 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('reactnative')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(
+                    hoveredSkill === 'reactnative' ? null : 'reactnative'
+                  )
+                }
                 src="/imgs/ReactNative.png"
                 alt="ReactNative"
                 className="skillsIcon"
@@ -176,6 +236,9 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('github')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'github' ? null : 'github')
+                }
                 src="/imgs/github.png"
                 alt="Git"
                 className="skillsIcon"
@@ -198,6 +261,9 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('git')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'git' ? null : 'git')
+                }
                 src="/imgs/GitIcon.png"
                 alt="GitIcon"
                 className="skillsIcon"
@@ -220,6 +286,11 @@ function App() {
               <img
                 onMouseEnter={() => setHoveredSkill('typescript')}
                 onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(
+                    hoveredSkill === 'typescript' ? null : 'typescript'
+                  )
+                }
                 src="/imgs/TypeScript.png"
                 alt="TypeScript"
                 className="TpSc"
@@ -239,7 +310,7 @@ function App() {
           </div>
         </div>
 
-        <div className="Divider2" />
+        <div className="Divider" />
       </main>
 
       <footer>
