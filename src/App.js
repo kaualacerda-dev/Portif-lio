@@ -89,6 +89,12 @@ function App() {
               aprimorar minhas habilidades para entregar o melhor resultado
               possível.
             </p>
+            <p>
+              Estou em busca de uma oportunidade para integrar uma equipe onde
+              possa crescer profissionalmente e contribuir com meu trabalho. Meu
+              objetivo é dar o melhor de mim e ajudar a empresa a alcançar suas
+              metas, enquanto desenvolvo minha carreira.
+            </p>
           </div>
         </div>
         <div className="Divider" data-aos="fade-up" />
