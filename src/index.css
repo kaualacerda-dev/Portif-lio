@@ -196,6 +196,358 @@
   margin-left: auto;
   margin-right: auto;
 }
+/* ==================== PROJETOS ==================== */
+
+.Projects h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  color: white;
+  margin: 0 0 20px 0;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 0%, #61dafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.containerProjects {
+  width: 50;
+  height: 59;
+  border-width: 2;
+  border-color: red;
+}
+
+/* ==================== PROJETOS ==================== */
+
+.Projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 6%;
+  padding: 0 20px;
+}
+
+.Projects h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  color: white;
+  margin: 0 0 50px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.Projects h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #61dafb;
+  border-radius: 2px;
+}
+
+.containerProjects {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background: linear-gradient(
+    135deg,
+    rgba(97, 218, 251, 0.05),
+    rgba(97, 218, 251, 0.02)
+  );
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(97, 218, 251, 0.5);
+  box-shadow: 0 10px 30px rgba(97, 218, 251, 0.2);
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.project-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay span {
+  color: #61dafb;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.project-info {
+  padding: 30px;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  color: white;
+  margin: 0 0 10px 0;
+}
+
+.project-tech {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #61dafb;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+}
+
+.project-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==================== MODAL PROJETO ==================== */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-project {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 2px solid rgba(97, 218, 251, 0.3);
+  border-radius: 20px;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 40px;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(97, 218, 251, 0.1);
+  border: 2px solid #61dafb;
+  color: #61dafb;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #61dafb;
+  color: #000;
+  transform: rotate(90deg);
+}
+
+.modal-project h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 4vw, 36px);
+  color: white;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.modal-image {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 15px;
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.05);
+  border-color: rgba(97, 218, 251, 0.5);
+}
+
+.project-details {
+  text-align: left;
+}
+
+.project-details h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #61dafb;
+  margin: 0 0 20px 0;
+}
+
+.project-details p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #d0d0d0;
+  line-height: 1.8;
+  margin: 0 0 20px 0;
+}
+
+.project-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.project-details li {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #d0d0d0;
+  line-height: 1.8;
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.project-details li::before {
+  content: '▹';
+  color: #61dafb;
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-badge {
+  background: rgba(97, 218, 251, 0.1);
+  border: 1px solid #61dafb;
+  color: #61dafb;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.project-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: rgba(97, 218, 251, 0.1);
+  border: 2px solid #61dafb;
+  border-radius: 10px;
+  color: #61dafb;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.project-github-link:hover {
+  background: #61dafb;
+  color: #000;
+  transform: translateX(5px);
+}
 
 /* ==================== SKILLS ==================== */
 .Compe {
@@ -290,7 +642,6 @@
   transform: scale(1.15) !important;
   filter: brightness(1) drop-shadow(0 0 15px rgba(97, 218, 251, 0.5));
 }
-
 
 .TpSc {
   width: 180px;
@@ -584,5 +935,54 @@
   .SocialIcon img {
     width: 40px;
     height: 40px;
+  }
+
+  .Projects {
+    margin-top: 15%;
+  }
+
+  .Projects h1 {
+    font-size: clamp(28px, 5vw, 36px);
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-image-container {
+    height: 400px;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-info h3 {
+    font-size: 22px;
+  }
+
+  .project-description {
+    font-size: 14px;
+  }
+
+  .modal-project {
+    padding: 25px;
+  }
+
+  .project-images-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-image {
+    height: 400px;
+  }
+
+  .project-details h3 {
+    font-size: 20px;
+  }
+
+  .project-details p,
+  .project-details li {
+    font-size: 14px;
   }
 }
