@@ -14,6 +14,8 @@ function App() {
   }, []);
 
   const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [showProjectModal, setShowProjectModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -52,7 +54,7 @@ function App() {
               data-aos-duration="1800"
               data-aos-delay="300"
             >
-              Oi, eu sou
+              Eu sou
             </h1>
             <h1
               className="NameH"
@@ -98,6 +100,118 @@ function App() {
           </div>
         </div>
         <div className="Divider" data-aos="fade-up" />
+
+        <div className="Projects">
+          <h1 data-aos="fade-down">Projetos</h1>
+
+          <div className="containerProjects">
+            <div
+              className="project-card"
+              data-aos="zoom-in"
+              onClick={() => {
+                setSelectedProject('shoes-store');
+                setShowProjectModal(true);
+              }}
+            >
+              <div className="project-image-container">
+                <img
+                  src="/imgs/projects/shoes-home.png"
+                  alt="Shoes Store"
+                  className="project-image"
+                />
+                <div className="project-overlay">
+                  <span>Clique para ver mais</span>
+                </div>
+              </div>
+              <div className="project-info">
+                <h3>Shoes Store</h3>
+                <p className="project-tech">
+                  React Native • TypeScript • Tamagui
+                </p>
+                <p className="project-description">
+                  E-commerce mobile completo com listagem de produtos, filtros
+                  por marca, sistema de favoritos e carrinho de compras.
+                  Desenvolvido com foco em gerenciamento de estado global e
+                  componentização avançada.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="Divider" data-aos="fade-up" />
+
+        {showProjectModal && (
+          <div
+            className="modal-backdrop"
+            onClick={() => setShowProjectModal(false)}
+          >
+            <div className="modal-project" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="modal-close"
+                onClick={() => setShowProjectModal(false)}
+              >
+                ✕
+              </button>
+              <h2>Shoes Store</h2>
+              <div className="modal-content">
+                <div className="project-images-grid">
+                  <img
+                    src="/imgs/projects/shoes-home.png"
+                    alt="Home"
+                    className="modal-image"
+                  />
+                  <img
+                    src="/imgs/projects/shoes-cart.png"
+                    alt="Carrinho"
+                    className="modal-image"
+                  />
+                  <img
+                    src="/imgs/projects/shoes-favorites.png"
+                    alt="Favoritos"
+                    className="modal-image"
+                  />
+                  <img
+                    src="/imgs/projects/shoes-profile.png"
+                    alt="Perfil"
+                    className="modal-image"
+                  />
+                </div>
+                <div className="project-details">
+                  <h3>Sobre o Projeto</h3>
+                  <p>
+                    Desenvolvi este e-commerce mobile como projeto de estudos
+                    para aprimorar minhas habilidades em React Native CLI. O
+                    foco foi criar uma interface moderna e fluida, explorando
+                    conceitos avançados de desenvolvimento mobile. No projeto
+                    utilizei:
+                  </p>
+                  <ul>
+                    <li>Gerenciamento de estado global com Context API</li>
+                    <li>Tipagem forte com TypeScript para maior segurança</li>
+                    <li>Interface responsiva construída com Tamagui</li>
+                    <li>Sistema de favoritos e carrinho de compras</li>
+                    <li>Filtros dinâmicos por marca</li>
+                    <li>Navegação entre múltiplas telas</li>
+                  </ul>
+                  <div className="project-tech-stack">
+                    <span className="tech-badge">React Native</span>
+                    <span className="tech-badge">TypeScript</span>
+                    <span className="tech-badge">Tamagui</span>
+                    <span className="tech-badge">Context API</span>
+                  </div>
+                  <a
+                    href="https://github.com/KauarRl/Loja-de-sapato"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-github-link"
+                  >
+                    <span>Ver código no GitHub →</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="skillsContainer">
           <h1 data-aos="fade-down" className="Compe">
