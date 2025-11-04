@@ -127,13 +127,46 @@ function App() {
               <div className="project-info">
                 <h3>Shoes Store</h3>
                 <p className="project-tech">
-                  React Native • TypeScript • Tamagui
+                  React Native • TypeScript • Tamagui • Android
                 </p>
                 <p className="project-description">
-                  E-commerce mobile completo com listagem de produtos, filtros
-                  por marca, sistema de favoritos e carrinho de compras.
-                  Desenvolvido com foco em gerenciamento de estado global e
-                  componentização avançada.
+                  E-commerce mobile completo para Android com listagem de
+                  produtos, filtros por marca, sistema de favoritos e carrinho
+                  de compras. Desenvolvido com foco em gerenciamento de estado
+                  global e componentização avançada.
+                </p>
+              </div>
+            </div>
+
+            <div
+              className="project-card"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              onClick={() => {
+                setSelectedProject('chat-app');
+                setShowProjectModal(true);
+              }}
+            >
+              <div className="project-image-container">
+                <img
+                  src="/imgs/projects/chat-home.png"
+                  alt="Chat App"
+                  className="project-image"
+                />
+                <div className="project-overlay">
+                  <span>Clique para ver mais</span>
+                </div>
+              </div>
+              <div className="project-info">
+                <h3>Chat em Tempo Real</h3>
+                <p className="project-tech">
+                  React Native • Firebase • TypeScript • Android
+                </p>
+                <p className="project-description">
+                  Aplicativo de mensagens em tempo real para Android com chat
+                  instantâneo, perfil de usuário personalizável e interface
+                  intuitiva. Desenvolvido com Firebase para comunicação
+                  real-time e autenticação.
                 </p>
               </div>
             </div>
@@ -153,62 +186,128 @@ function App() {
               >
                 ✕
               </button>
-              <h2>Shoes Store</h2>
+              <h2>
+                {selectedProject === 'shoes-store'
+                  ? 'Shoes Store'
+                  : 'Chat em Tempo Real'}
+              </h2>
               <div className="modal-content">
-                <div className="project-images-grid">
-                  <img
-                    src="/imgs/projects/shoes-home.png"
-                    alt="Home"
-                    className="modal-image"
-                  />
-                  <img
-                    src="/imgs/projects/shoes-cart.png"
-                    alt="Carrinho"
-                    className="modal-image"
-                  />
-                  <img
-                    src="/imgs/projects/shoes-favorites.png"
-                    alt="Favoritos"
-                    className="modal-image"
-                  />
-                  <img
-                    src="/imgs/projects/shoes-profile.png"
-                    alt="Perfil"
-                    className="modal-image"
-                  />
-                </div>
-                <div className="project-details">
-                  <h3>Sobre o Projeto</h3>
-                  <p>
-                    Desenvolvi este e-commerce mobile como projeto de estudos
-                    para aprimorar minhas habilidades em React Native CLI. O
-                    foco foi criar uma interface moderna e fluida, explorando
-                    conceitos avançados de desenvolvimento mobile. No projeto
-                    utilizei:
-                  </p>
-                  <ul>
-                    <li>Gerenciamento de estado global com Context API</li>
-                    <li>Tipagem forte com TypeScript para maior segurança</li>
-                    <li>Interface responsiva construída com Tamagui</li>
-                    <li>Sistema de favoritos e carrinho de compras</li>
-                    <li>Filtros dinâmicos por marca</li>
-                    <li>Navegação entre múltiplas telas</li>
-                  </ul>
-                  <div className="project-tech-stack">
-                    <span className="tech-badge">React Native</span>
-                    <span className="tech-badge">TypeScript</span>
-                    <span className="tech-badge">Tamagui</span>
-                    <span className="tech-badge">Context API</span>
-                  </div>
-                  <a
-                    href="https://github.com/KauarRl/Loja-de-sapato"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-github-link"
-                  >
-                    <span>Ver código no GitHub →</span>
-                  </a>
-                </div>
+                {selectedProject === 'shoes-store' ? (
+                  <>
+                    <div className="project-images-grid">
+                      <img
+                        src="/imgs/projects/shoes-home.png"
+                        alt="Home"
+                        className="modal-image"
+                      />
+                      <img
+                        src="/imgs/projects/shoes-cart.png"
+                        alt="Carrinho"
+                        className="modal-image"
+                      />
+                      <img
+                        src="/imgs/projects/shoes-favorites.png"
+                        alt="Favoritos"
+                        className="modal-image"
+                      />
+                      <img
+                        src="/imgs/projects/shoes-profile.png"
+                        alt="Perfil"
+                        className="modal-image"
+                      />
+                    </div>
+                    <div className="project-details">
+                      <h3>Sobre o Projeto</h3>
+                      <p>
+                        Desenvolvi este e-commerce mobile como projeto de
+                        estudos para aprimorar minhas habilidades em React
+                        Native CLI. O foco foi criar uma interface moderna e
+                        fluida para Android, explorando conceitos avançados de
+                        desenvolvimento mobile. No projeto utilizei:
+                      </p>
+                      <ul>
+                        <li>Gerenciamento de estado global com Context API</li>
+                        <li>
+                          Tipagem forte com TypeScript para maior segurança
+                        </li>
+                        <li>Interface responsiva construída com Tamagui</li>
+                        <li>Sistema de favoritos e carrinho de compras</li>
+                        <li>Filtros dinâmicos por marca</li>
+                        <li>Navegação entre múltiplas telas</li>
+                      </ul>
+                      <div className="project-tech-stack">
+                        <span className="tech-badge">React Native</span>
+                        <span className="tech-badge">TypeScript</span>
+                        <span className="tech-badge">Tamagui</span>
+                        <span className="tech-badge">Context API</span>
+                        <span className="tech-badge">Android</span>
+                      </div>
+                      <a
+                        href="https://github.com/KauarRl/Loja-de-sapato"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-github-link"
+                      >
+                        <span>Ver código no GitHub →</span>
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="project-images-grid">
+                      <img
+                        src="/imgs/projects/chat-home.png"
+                        alt="Lista de conversas"
+                        className="modal-image"
+                      />
+                      <img
+                        src="/imgs/projects/chat-messages.png"
+                        alt="Mensagens"
+                        className="modal-image"
+                      />
+                      <img
+                        src="/imgs/projects/chat-profile.png"
+                        alt="Perfil"
+                        className="modal-image"
+                      />
+                    </div>
+                    <div className="project-details">
+                      <h3>Sobre o Projeto</h3>
+                      <p>
+                        Criei este app de chat em tempo real como projeto de
+                        estudos para explorar comunicação real-time e
+                        gerenciamento de estado complexo. O aplicativo Android
+                        permite troca de mensagens instantâneas com interface
+                        limpa e intuitiva. No projeto utilizei:
+                      </p>
+                      <ul>
+                        <li>
+                          Firebase Realtime Database para mensagens instantâneas
+                        </li>
+                        <li>Autenticação de usuários com Firebase Auth</li>
+                        <li>Tipagem com TypeScript para código mais seguro</li>
+                        <li>Sistema de perfil personalizável</li>
+                        <li>Interface moderna e responsiva</li>
+                        <li>Notificações de novas mensagens</li>
+                      </ul>
+                      <div className="project-tech-stack">
+                        <span className="tech-badge">React Native</span>
+                        <span className="tech-badge">Firebase</span>
+                        <span className="tech-badge">TypeScript</span>
+                        <span className="tech-badge">Real-time</span>
+                        <span className="tech-badge">Android</span>
+                      </div>
+                      <a
+                        href="https://github.com/KauarRl/Vex"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-github-link"
+                      >
+                        <span>Ver código no GitHub →</span>
+                      </a>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
