@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import './App.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -71,7 +70,7 @@ function App() {
               data-aos-duration="2000"
               data-aos-delay="900"
             >
-              Desenvolvedor Mobile Front-End
+              Desenvolvedor Full Stack
             </p>
           </div>
         </div>
@@ -84,19 +83,23 @@ function App() {
           <div className="AboutMe" data-aos="fade-down">
             <h1 className="about">Sobre mim</h1>
             <p>
-              Sou um desenvolvedor front-end apaixonado por tecnologia e
-              inovação. Sou autodidata e aprendo por meio de cursos online e
-              projetos práticos. Possuo experiência profissional em
-              desenvolvimento mobile, com foco em criar soluções eficientes e
-              intuitivas. Estou sempre buscando aprender novas tecnologias e
-              aprimorar minhas habilidades para entregar o melhor resultado
-              possível.
-            </p>
-            <p>
-              Estou em busca de uma oportunidade para integrar uma equipe onde
-              possa crescer profissionalmente e contribuir com meu trabalho. Meu
-              objetivo é dar o melhor de mim e ajudar a empresa a alcançar suas
-              metas, enquanto desenvolvo minha carreira.
+              Sou desenvolvedor full stack e gosto de transformar ideias em
+              aplicações que realmente funcionam no dia a dia. Trabalho com
+              JavaScript e TypeScript, desenvolvendo interfaces web e mobile com
+              React e React Native, além de APIs no backend utilizando Node.js,
+              Express, NestJS e Prisma.
+              <p>
+                Grande parte do meu aprendizado veio da prática e da curiosidade
+                em entender como as coisas funcionam por trás do código. Com
+                projetos reais do início ao fim, aprendi na prática a organizar
+                o código e a buscar soluções simples, que funcionam bem e não
+                viram dor de cabeça depois. Tenho interesse em participar de
+                projetos desafiadores, colaborar com outras pessoas e evoluir
+                constantemente como desenvolvedor, contribuindo com código de
+                qualidade e soluções que façam sentido tanto para o negócio
+                quanto para quem vai usar o produto.
+              </p>
+              <p></p>
             </p>
           </div>
         </div>
@@ -523,6 +526,81 @@ function App() {
                   <p>
                     Conhecimento básico em tipagem de variáveis, interfaces e
                     types para projetos JavaScript
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Node.js */}
+            <div className="skill-wrapper">
+              <img
+                onMouseEnter={() => setHoveredSkill('nodejs')}
+                onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'nodejs' ? null : 'nodejs')
+                }
+                src="/imgs/nodejsLogo.png"
+                alt="Node.js"
+                className="skillsIcon"
+                data-aos="zoom-in"
+                data-aos-delay="900"
+              />
+              {hoveredSkill === 'nodejs' && (
+                <div className="modalSkill">
+                  <h3>Node.js</h3>
+                  <p>
+                    Experiência com APIs REST, rotas e integração de serviços
+                    para dar suporte ao front-end
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Prisma */}
+            <div className="skill-wrapper">
+              <img
+                onMouseEnter={() => setHoveredSkill('prisma')}
+                onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'prisma' ? null : 'prisma')
+                }
+                src="/imgs/prisma-orm.png"
+                alt="Prisma ORM"
+                className="skillsIcon"
+                data-aos="zoom-in"
+                data-aos-delay="1000"
+              />
+              {hoveredSkill === 'prisma' && (
+                <div className="modalSkill">
+                  <h3>Prisma ORM</h3>
+                  <p>
+                    Conhecimento em modelagem, migrations e consultas com ORM
+                    para bancos relacionais
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* NestJS */}
+            <div className="skill-wrapper">
+              <img
+                onMouseEnter={() => setHoveredSkill('nestjs')}
+                onMouseLeave={() => setHoveredSkill(null)}
+                onClick={() =>
+                  setHoveredSkill(hoveredSkill === 'nestjs' ? null : 'nestjs')
+                }
+                src="/imgs/NestJSlogo.png"
+                alt="NestJS"
+                className="skillsIcon"
+                data-aos="zoom-in"
+                data-aos-delay="1100"
+              />
+              {hoveredSkill === 'nestjs' && (
+                <div className="modalSkill">
+                  <h3>NestJS</h3>
+                  <p>
+                    Experiência criando back-end modular com controllers,
+                    services e validações de dados
                   </p>
                 </div>
               )}
